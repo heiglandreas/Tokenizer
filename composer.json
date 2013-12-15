@@ -1,0 +1,32 @@
+{
+    "name" : "org_heigl/tokenizer",
+    "description" : "Provides a way of tokenizing strings",
+    "version" : "1.0.0-alpha1",
+    "type" : "library",
+    "keywords": ["tokenize", "token", "string"],
+    "license" : "MIT",
+    "authors" : [{
+        "name" : "Andreas Heigl",
+        "email" : "andreas@heigl.org",
+        "homepage" : "http://andreas.heigl.org",
+        "role" : "Developer"
+    }],
+    "support" : {
+        "email" : "tokenizer@heigl.org",
+        "issues" : "https://github.com/heiglandreas/tokenizer/issues"
+    },
+    "require-dev" : {
+        "org_heigl/devstructure" : "dev-master",
+        "mockery/mockery" : "dev-master"
+    },
+    "minimum-stability": "dev",
+    "config" : {
+        "bin-dir" : "bin"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Org_Heigl\\Tokenizer\\" : "src/",
+            "Org_Heigl\\TokenizerTest\\" : "tests/"
+        }
+    }
+}
