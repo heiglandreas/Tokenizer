@@ -74,5 +74,66 @@ class TokenListTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('token test', (string) $tokenList);
 
     }
+
+    public function testFindingACertainToken()
+    {
+        $tokenList = new TokenList();
+
+        $token1 = Token::create(0, 'token', 'string');
+        $token2 = Token::create(5, ' ', 'whitespace');
+        $token3 = Token::create(5, ' ', 'whitespace');
+        $token4 = Token::create(6, 'foo', 'string');
+
+        $tokenList->add($token1)->add($token2)->add($token3)->add($token4)->add($token3);
+
+        $this->assertSame('token  foo ', (string) $tokenList);
+
+        $this->assertSame($token3, $tokenList->offsetGet(4));
+        $this->assertNotSame($token2, $tokenList->offsetGet(2));
+        $this->assertEquals(2, $tokenList->find($token3));
+
+        $this->assertEquals(array(2, 4), $tokenList->findAll($token3));
+    }
+
+    public function testRemovingACertainToken()
+    {
+        $tokenList = new TokenList();
+
+        $token1 = Token::create(0, 'token', 'string');
+        $token2 = Token::create(5, ' ', 'whitespace');
+        $token3 = Token::create(5, ' ', 'whitespace');
+        $token4 = Token::create(6, 'foo', 'string');
+
+        $tokenList->add($token1)->add($token2)->add($token3)->add($token4)->add($token3);
+
+        $this->assertSame('token  foo ', (string) $tokenList);
+
+        $this->assertSame($token3, $tokenList->offsetGet(4));
+        $this->assertNotSame($token2, $tokenList->offsetGet(2));
+
+        $this->assertSame($tokenList, $tokenList->remove($token3));
+
+        $this->assertSame('token foo', (string) $tokenList);
+    }
+
+    public function testReplacingACertainToken()
+    {
+        $tokenList = new TokenList();
+
+        $token1 = Token::create(0, 'token', 'string');
+        $token2 = Token::create(5, ' ', 'whitespace');
+        $token3 = Token::create(5, ' ', 'whitespace');
+        $token4 = Token::create(6, 'foo', 'string');
+
+        $tokenList->add($token1)->add($token2)->add($token3)->add($token4)->add($token3);
+
+        $this->assertSame('token  foo ', (string) $tokenList);
+
+        $this->assertSame($token3, $tokenList->offsetGet(4));
+        $this->assertNotSame($token2, $tokenList->offsetGet(2));
+
+        $this->assertSame($tokenList, $tokenList->replace($token3, clone($tokenList)));
+        $this->assertSame('token token  foo footoken  foo ', (string)$tokenList);
+    }
 }
  

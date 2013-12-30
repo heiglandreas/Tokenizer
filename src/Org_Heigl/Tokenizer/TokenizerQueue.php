@@ -26,7 +26,7 @@
  * @license   http://www.opesource.org/licenses/mit-license.php MIT-License
  * @version   0.0
  * @since     14.12.13
- * @link      https://github.com/heiglandreas/
+ * @link      https://github.com/heiglandreas/Tokenizer
  */
 
 namespace Org_Heigl\Tokenizer;

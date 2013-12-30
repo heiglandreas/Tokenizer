@@ -26,7 +26,7 @@
  * @license   http://www.opesource.org/licenses/mit-license.php MIT-License
  * @version   0.0
  * @since     15.12.13
- * @link      https://github.com/heiglandreas/
+ * @link      https://github.com/heiglandreas/Tokenizer
  */
 
 namespace Org_Heigl\Tokenizer\Tokenizers;
@@ -48,25 +48,8 @@ use Org_Heigl\Tokenizer\Token;
  *
  * @package Org_Heigl\Tokenizer\Tokenizers
  */
-class WhitespaceTokenizer implements TokenizerInterface
+class WhitespaceTokenizer extends AbstractTokenizer
 {
-    /**
-     * Split the given TokenList further into tokens
-     *
-     * @param TokenList $tokenList
-     *
-     * @see TokenizerInterface
-     * @return TokenList
-     */
-    public function tokenize(TokenList $tokenList)
-    {
-        foreach ($tokenList as $key => $token) {
-            $tokenList->replace($token, $this->tokenizeToken($token));
-        }
-
-        return $tokenList;
-    }
-
     /**
      * Tokenize a given token
      *

@@ -62,7 +62,10 @@ class TokenList extends \ArrayObject
      */
     public function remove(Token $token)
     {
-        // TODO: implement
+        foreach($this->findAll($token) as $key) {
+            $this->offsetUnset($key);
+        }
+        return $this;
     }
 
     /**
@@ -75,7 +78,15 @@ class TokenList extends \ArrayObject
      */
     public function replace(Token $token, TokenList $replacement)
     {
-        // TODO: implement
+        $keys = $this->findAll($token);
+        $keys = array_reverse($keys);
+        foreach($keys as $key) {
+            $newArray = (array) $this;
+            array_splice($newArray, $key, 1, $replacement);
+            $this->exchangeArray($newArray);
+        }
+
+        return $this;
     }
 
     /**
@@ -87,7 +98,7 @@ class TokenList extends \ArrayObject
      */
     public function find(Token $token)
     {
-        // TODO: implement
+        return array_search($token, (array) $this, true);
     }
 
     /**
@@ -99,7 +110,7 @@ class TokenList extends \ArrayObject
      */
     public function findAll(Token $token)
     {
-        // TODO: implement
+        return array_keys((array) $this, $token, true);
     }
 
     /**

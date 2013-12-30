@@ -34,6 +34,7 @@ namespace Org_Heigl\TokenizerTest\Tokenizers;
 
 use Org_Heigl\Tokenizer\Tokenizers\WhitespaceTokenizer;
 use Org_Heigl\Tokenizer\Token;
+use Org_Heigl\Tokenizer\TokenList;
 
 class WhitespaceTokenizerTest extends \PHPUnit_Framework_TestCase
 {
@@ -91,6 +92,24 @@ class WhitespaceTokenizerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, $tokenList->count());
 
     }
+
+    public function testWhitespaceTokenizerSimpleCall()
+    {
+        $tokenizer= new WhitespaceTokenizer();
+
+        $token = Token::create(0, 'Das ist ein einfacher Test', 'string');
+        $tokenL = new TokenList();
+        $tokenL->add($token);
+        $tokenList = $tokenizer->tokenize($tokenL);
+
+        $this->assertInstanceOf('Org_Heigl\Tokenizer\TokenList', $tokenList);
+        $this->assertSame($tokenL, $tokenList);
+        $this->assertEquals(9, $tokenList->count());
+        $this->assertEquals('whitespace', $tokenList->offsetGet(5)->getType());
+        $this->assertEquals('einfacher', $tokenList->offsetGet(6)->getToken());
+        $this->assertEquals('Das ist ein einfacher Test', (string) $tokenList);
+    }
+
 
 
 }

@@ -25,25 +25,47 @@
  * @copyright ©2013-2013 Andreas Heigl
  * @license   http://www.opesource.org/licenses/mit-license.php MIT-License
  * @version   0.0
- * @since     14.12.13
+ * @since     15.12.13
  * @link      https://github.com/heiglandreas/Tokenizer
  */
 
-namespace Org_Heigl\Tokenizer;
+namespace Org_Heigl\Tokenizer\Tokenizers;
+
+use Org_Heigl\Tokenizer\TokenizerInterface;
+use Org_Heigl\Tokenizer\TokenList;
+use Org_Heigl\Tokenizer\Token;
 
 /**
- * Interface TokenizerInterface
+ * This is an abstract class for easier handling
  *
- * @package Org_Heigl\Tokenizer
+ * @package Org_Heigl\Tokenizer\Tokenizers
  */
-interface TokenizerInterface
+abstract class AbstractTokenizer implements TokenizerInterface
 {
     /**
      * Split the given TokenList further into tokens
      *
      * @param TokenList $tokenList
      *
+     * @see TokenizerInterface
      * @return TokenList
      */
-    public function tokenize(TokenList $tokenList);
+    public function tokenize(TokenList $tokenList)
+    {
+        foreach ($tokenList as $key => $token) {
+            $tl = $this->tokenizeToken($token);
+            $tokenList->replace($token, $tl);
+        }
+
+        return $tokenList;
+    }
+
+    /**
+     * Tokenize a given token
+     *
+     * @param Token $token
+     *
+     * @return TokenList
+     */
+    abstract public function tokenizeToken(Token $token);
 } 
