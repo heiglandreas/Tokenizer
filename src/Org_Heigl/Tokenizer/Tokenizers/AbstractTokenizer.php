@@ -52,7 +52,8 @@ abstract class AbstractTokenizer implements TokenizerInterface
      */
     public function tokenize(TokenList $tokenList)
     {
-        foreach ($tokenList as $key => $token) {
+        $internalTokenList = clone($tokenList);
+        foreach ($internalTokenList as $token) {
             $tl = $this->tokenizeToken($token);
             $tokenList->replace($token, $tl);
         }
