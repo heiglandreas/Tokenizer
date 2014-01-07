@@ -1,7 +1,10 @@
 # Tokenizer
 
-Provides Tokenizers to split strings into singkle tokens depending on the used
-tokenizers
+Provides ways to split strings into smaller entities depending on the used
+tokenizers.
+
+You can chain different tokenizers to a tokenizer-chain to get the results you
+want. 
 
 [![Build Status](https://travis-ci.org/heiglandreas/Tokenizer.png)](https://travis-ci.org/heiglandreas/Tokenizer)
 
