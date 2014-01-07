@@ -3,6 +3,8 @@
 Provides Tokenizers to split strings into singkle tokens depending on the used
 tokenizers
 
+[![Build Status](https://travis-ci.org/heiglandreas/Tokenizer.png)](https://travis-ci.org/heiglandreas/Tokenizer)
+
 ## Installation
 
 Install using ```composer``` by adding the following line to your
