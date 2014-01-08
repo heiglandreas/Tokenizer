@@ -78,7 +78,7 @@ class CamelCaseTokenizerTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testWhitespaceTokenizerSimpleCall()
+    public function testCamelCaseTokenizerSimpleCall()
     {
         $tokenizer= new CamelCaseTokenizer();
 

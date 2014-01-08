@@ -46,7 +46,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
 
         // Add single tokenizers to the queue
         // First a Whitespace tokenizer
-        $tokenizer->addTokenizer(new Tokenizers\WhiteSpaceTokenizer());
+        $tokenizer->addTokenizer(new Tokenizers\WhitespaceTokenizer());
         // Then a CamelCase-Tokenizer
         $tokenizer->addTokenizer(new Tokenizers\CamelCaseTokenizer());
 
@@ -56,7 +56,6 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
         // Finally tokenize a given string
         $tokenList = $tokenizer->tokenize($tokenList);
 
-        var_dump((array) $tokenList);
         $expectedResult = new TokenList();
         $expectedResult->add(Token::create(0, 'A', 'string'));
         $expectedResult->add(Token::create(1, ' ', 'whitespace'));

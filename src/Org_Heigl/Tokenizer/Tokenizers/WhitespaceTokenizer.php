@@ -31,7 +31,6 @@
 
 namespace Org_Heigl\Tokenizer\Tokenizers;
 
-use Org_Heigl\Tokenizer\TokenizerInterface;
 use Org_Heigl\Tokenizer\TokenList;
 use Org_Heigl\Tokenizer\Token;
 
