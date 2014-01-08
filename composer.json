@@ -16,7 +16,6 @@
         "issues" : "https://github.com/heiglandreas/tokenizer/issues"
     },
     "require-dev" : {
-        "org_heigl/devstructure" : "dev-master",
         "mockery/mockery" : "dev-master"
     },
     "minimum-stability": "dev",
