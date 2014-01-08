@@ -25,19 +25,19 @@ Install using ```composer``` by adding the following line to your
 
 Usage is rather simple:
 
-    use Org_Heigl\Tokenizer
-    use Org_Heigl\Tokeinzer\Tokenizers as Tokenizer
+    use Org_Heigl\Tokenizer\TokenizerQueue;
+    use Org_Heigl\Tokenizer\Tokenizers;
     // Create a new Tokenizer-Queue
     $tokenizer = new TokenizerQueue();
 
     // Add single tokenizers to the queue
     // First a Whitespace tokenizer
-    $tokenizer->addTokenizer(new Tokenizer\WhiteSpaceTokenizer());
+    $tokenizer->addTokenizer(new Tokenizers\WhiteSpaceTokenizer());
     // Then a CamelCase-Tokenizer
-    $tokenizer->addTokenizer(new Tokenizer\CamelCaseTokenizer());
+    $tokenizer->addTokenizer(new Tokenizers\CamelCaseTokenizer());
 
     // Finally tokenize a given string
-    $tokenList = $tokenizer->tokenize('A String with WhiteSpace");
+    $tokenList = $tokenizer->tokenize('A String with WhiteSpace');
 
     var_dump((array) $tokenList);
 
