@@ -4,7 +4,13 @@ Provides ways to split strings into smaller entities depending on the used
 tokenizers.
 
 You can chain different tokenizers to a tokenizer-chain to get the results you
-want. 
+want.
+
+Currently this library provides these Tokenizers:
+
+* WhitespaceTokenizer to split strings on every whitespace. Can be used to split
+  a sentence into single words.
+* CamelCaseTokenizer to split CamelCased-Strings into separate tokens.
 
 [![Build Status](https://travis-ci.org/heiglandreas/Tokenizer.png)](https://travis-ci.org/heiglandreas/Tokenizer)
 
